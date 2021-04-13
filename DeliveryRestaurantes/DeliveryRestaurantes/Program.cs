@@ -23,9 +23,39 @@ namespace DeliveryRestaurantes
             r2.cardapio.adicionarProduto(p4);
             regLondrina.adicionarRestaurante(r2);
 
-
+            regLondrina.removerRestaurante(r1);
             regLondrina.mostrarRestaurantes();
             r2.mostrarCardapio();
+
+            RestaurantesRegiao regMaringa = new RestaurantesRegiao("Maringá");
+            Restaurante r3 = new Restaurante("Resturante Canção", "Av Colombo", "444444");
+            Produto p5 = new Produto("Baião de 2", "Arroz com feijão e temperos", 13.50f);
+            Produto p6 = new Produto("Ovo cozido", "Ovos de codorna", 6.50f);
+            r3.cardapio.adicionarProduto(p5);
+            r3.cardapio.adicionarProduto(p6);
+            regMaringa.adicionarRestaurante(r3);
+
+            r3.removerProduto(p6);
+
+            regMaringa.mostrarRestaurantes();
+            r3.mostrarCardapio();
+
+            Pedido pedido1 = new Pedido("Diego");
+            pedido1.adicionarProduto(p1);
+            pedido1.adicionarProduto(p2);
+            pedido1.entregar();
+            pedido1.mostrarPedido();
+            r3.adicionarPedido(pedido1);
+            r3.criarPedido("Joao", new Produto[]{p5});
+            r2.criarPedido("Dhayvison", new Produto[] { p3, p4 });
+            r2.criarPedido("Matheus", new Produto[] { p3 });
+            r2.criarPedido("Raul", new Produto[] { p4 });
+            r3.mostrarPedidos(Restaurante.TipoPedido.NaoEntregue);
+            r3.mostrarPedidos(Restaurante.TipoPedido.Entregue);
+            r3.mostrarPedidos(Restaurante.TipoPedido.Todos);
+            r2.mostrarPedidos(Restaurante.TipoPedido.NaoEntregue);
+            r2.mostrarPedidos(Restaurante.TipoPedido.Entregue);
+            r2.mostrarPedidos(Restaurante.TipoPedido.Todos);
         }
     }
 }

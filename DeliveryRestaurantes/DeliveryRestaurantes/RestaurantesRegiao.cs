@@ -12,7 +12,7 @@ namespace DeliveryRestaurantes
         public RestaurantesRegiao(string nomeRegiao)
         {
             this.nomeRegiao = nomeRegiao;
-            this.restaurantes = new List<Restaurante>();
+            restaurantes = new List<Restaurante>();
         }
         public void mostrarRestaurantes()
         {
@@ -25,7 +25,11 @@ namespace DeliveryRestaurantes
         }
         public void adicionarRestaurante(Restaurante r)
         {
-            this.restaurantes.Add(r);
+            restaurantes.Add(r);
+        }
+        public void removerRestaurante(Restaurante r)
+        {
+            restaurantes.Remove(r);
         }
     }
 }
